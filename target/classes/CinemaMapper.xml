@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace="... "  设置该映射的地址-->
+<!--namespace="com.yc.mybatis.mapper.CinemaMapper"-->
+<mapper namespace="com.yc.mybatis.mapper.CinemaMapper">
+    <select id="selectAll" resultType="map">
+        select * from cinema
+    </select>
+
+    <select id="selectAll1" resultType="com.yc.cinema.bean.Cinema">
+        select * from cinema
+    </select>
+    
+    <select id="selectByName" resultType="com.yc.cinema.bean.Cinema">
+        select * from cinema where name=#{name}
+    </select>
+
+    <select id="selectByNameAndgps" resultType="com.yc.cinema.bean.Cinema">
+        select * from cinema where name=#{name} and gps=#{gps}
+    </select>
+
+    <insert id="addCinema">
+        insert into cinema values(default,#{name},#{address},#{gps},#{img})
+    </insert>
+
+    <update id="updateCinema">
+        update cinema set name=#{name} where id=#{id}
+    </update>
+
+    <delete id="deleteCinema">
+        delete from cinema where id=#{id}
+    </delete>
+
+
+</mapper>

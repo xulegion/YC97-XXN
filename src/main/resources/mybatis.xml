@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--
+    xml 编写规范：
+        1.唯一的跟标签
+        2.大小写敏感
+        3.起止标签要对应
+        4.属性值必须使用 单双引号
+-->
+<configuration>
+    <!-- 默认当前连接哪个数据库   实际开发会有测试，上线等等   -->
+    <environments default="development">
+    <!-- id 数据库环境标识       -->
+        <environment id="development">
+    <!--  type="JDBC" 事务管理使用数据库的事务          -->
+            <transactionManager type="JDBC"/>
+        <!--  type="POOLED" 使用数据库链接池          -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/s3-mybatis?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="CinemaMapper.xml"/>
+    </mappers>
+
+</configuration>
