@@ -7,4 +7,6 @@ import java.util.List;
 public interface CinemaMapper {
 
     List<Cinema> selectAll1();
+
+    Cinema selectByName(String name);
 }
